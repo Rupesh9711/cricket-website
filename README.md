@@ -6,7 +6,6 @@ A high-end, real-time **Live Cricket Score** website that delivers fast, accurat
 ##  Features
 
 -  Real-time live scores with automatic updates
--  Intelligent win predictor using machine learning
 -  Ongoing, upcoming, and completed match listings
 -  Dynamic hero section with cricket-themed banners
 -  Sticky navbar and mobile-responsive design
