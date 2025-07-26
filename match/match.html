@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Details</title>
+
+  <link rel="stylesheet" href="./match.css">
+  
+</head>
+<body>
+  <header>🏏 Match Details</header>
+  <div class="container" id="matchContainer">Loading match details...</div>
+
+  <script>
+    const matchData = JSON.parse(localStorage.getItem('selectedMatch'));
+    const container = document.getElementById('matchContainer');
+
+    if (!matchData) {
+      container.innerHTML = '<p>No match data found.</p>';
+    } else {
+      let scoreHTML = "";
+
+      if (Array.isArray(matchData.score) && matchData.score.length > 0) {
+        matchData.score.forEach(inning => {
+          scoreHTML += `
+            <div class="inning-box">
+              <strong>${inning.inning}</strong><br>
+              Runs: ${inning.r} / Wickets: ${inning.w} <br>
+              Overs: ${inning.o}
+            </div>
+          `;
+        });
+      } else {
+        scoreHTML = "<p>No score data available.</p>";
+      }
+
+      container.innerHTML = `
+        <h2>${matchData.name}</h2>
+        <p><strong>Status:</strong> ${matchData.status}</p>
+        <p><strong>Venue:</strong> ${matchData.venue || "Unknown"}</p>
+        <p><strong>Teams:</strong> ${matchData.teams.join(" vs ")}</p>
+        ${scoreHTML}
+        ${matchData.status.toLowerCase().includes("won") || matchData.status.toLowerCase().includes("drawn") ? `<p><strong>Result:</strong> ${matchData.status}</p>` : ""}
+        <a href="index.html" class="back-button">⬅ Back to Home</a>
+      `;
+    }
+  </script>
+</body>
+</html>

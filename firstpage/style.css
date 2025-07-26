@@ -1,0 +1,113 @@
+:root {
+  --background: #0e0e0e;
+  --text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  background-color: #0a0a0a;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #314365, #9baac5, #8ca3d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Unbounded', cursive;
+  font-weight: 700;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #9baac5;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 1rem 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  border-left: 4px solid #9baac5;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Unbounded', cursive;
+}
+
+.matches-section {
+  display: grid;
+  gap: 2rem;
+}
+
+.match-card {
+  background: linear-gradient(to right, #1a1f25, #26323e, #2c3e50);
+  padding: 1.5rem;
+  border-radius: 18px;
+  border: 1px solid rgba(128, 128, 128, 0.486);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.match-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(110, 255, 156, 0.2);
+}
+
+.match-card h3 {
+  font-size: 1.4rem;
+  background: linear-gradient(to left, #314365, #9baac5, #8ca3d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.match-card p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .match-card {
+    padding: 1rem;
+  }
+}
